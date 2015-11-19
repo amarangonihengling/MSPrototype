@@ -6,11 +6,267 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Park Genie</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Jquery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512- dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#carousel').carousel({
+                    //options here
+                });
+            });   
+            
+            function enableLocation(obj) {
+                var edtMaxDistance = document.getElementById("maxDistance");
+                if (obj.checked) {            
+                    var message = "The system wants to use your current location. Do you want allow the system to have this information?";
+                    var ret = confirm(message);
+
+                    if (ret == true) {
+                        edtMaxDistance.removeAttribute("disabled");
+                    }             
+                    else {
+                        obj.checked = false;
+                    }
+                }
+                else {
+                    edtMaxDistance.value = "";
+                    edtMaxDistance.setAttribute("disabled", "true");
+                }
+            }
+        </script>        
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body>   
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">ParkGenie</a>
+                </div> 
+            
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Promotions</a></li>
+                        <li><a href="#">Map &amp; Forecast</a></li>                        
+                    </ul>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> <!-- Navbar -->
+        
+        <div class="row">               
+            <!-- Logo/Animation -->
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <img src="img/doodle-genie-lamp-vector-1113185.jpg" alt="Application logo" />
+            </div> <!-- Logo/Animation -->                                 
+            
+            <!-- Search -->
+            <div class="col-md-1"></div>
+            <div class="col-md-3">                               
+                <div class="panel panel-default">                    
+                    <div class="panel-heading">Search for Parks</div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="parkType">Type of the park</label>
+                                <select id="parkType" class="form-control">
+                                    <option>Select the park type</option>
+                                    <option>Amusement</option>
+                                    <option>State Park</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" onclick="enableLocation(this)"> Show parks close to me
+                                    </label>
+                                </div>    
+                                
+                                <label for="maxDistance">Max Distance</label>
+                                <input type="text" id="maxDistance" class="form-control" placeholder="Max Distance (miles)" disabled />
+                            </div>
+                                                                     
+                            <div class="form-group">
+                                <label for="parkName">Park Name</label>
+                                <input type="text" id="parkName" class="form-control" placeholder="Park Name" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <select id="state" class="form-control">
+                                    <option>Select the state</option>
+                                    <option>Amusement</option>
+                                    <option>State Park</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <select id="city" class="form-control">
+                                    <option>Select the city</option>
+                                    <option>Amusement</option>
+                                    <option>State Park</option>
+                                </select>
+                            </div>
+                                                              
+                            <label>Price Range</label>
+                            
+                            <div class="form-group">
+                                <div class="col-md-12"></div>                                 
+                                <div class="form-group">
+                                    <label class="sr-only" for="minPrice">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" id="minPrice" placeholder="Min Amount">
+                                        <div class="input-group-addon">.00</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="maxPrice">Amount (in dollars)</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" id="maxPrice" placeholder="Max Amount">
+                                        <div class="input-group-addon">.00</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12"></div>               
+                            </div>   
+
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            <div class="col-md-12"></div>
+                            
+                            <input type="submit" class="btn btn-primary" value="Search" />                            
+                            
+                        </form>                    
+                    </div>
+                </div>    
+            </div> <!-- Search --> 
+                        
+            <!-- App body -->
+            <div class="col-md-7">     
+                <div class="panel panel-default">
+                    <div class="panel-heading">Most Wanted Attractions</div>
+                    <div class="panel-body">                        
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel" data-slide-to="0"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                                <li data-target="#carousel" data-slide-to="3"></li>
+                                <li data-target="#carousel" data-slide-to="4"></li>
+                                <li data-target="#carousel" data-slide-to="5"></li>
+                                <li data-target="#carousel" data-slide-to="6"></li>
+                            </ol>
+                            
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href="https://disneyworld.disney.go.com" target="_blank">
+                                        <img src="img/disney-world-logo.png" alt="Slide 1">
+                                    </a>
+                                </div>              
+                                <div class="item">
+                                    <a href="https://www.sixflags.com" target="_blank">
+                                        <img src="img/Six_Flags_logo.svg.png" alt="Slide 1">
+                                    </a>
+                                </div>  
+                                <div class="item">
+                                    <a href="https://www.universalorlando.com/Home.aspx" target="_blank">
+                                        <img src="img/Universal_Orlando_Resort_Logo.jpg" alt="Slide 1">
+                                    </a>
+                                </div>  
+                                <div class="item">
+                                    <a href="https://www.worldsoffun.com" target="_blank">
+                                        <img src="img/WF13-000%2040th%20Anniversary%20Logo.png" alt="Slide 1">
+                                    </a>
+                                </div>  
+                                <div class="item">
+                                    <a href="http://www.yellowstonenationalparklodges.com/lodging/?gclid=CImEpMn4m8kCFRCCaQod5NIAQA" target="_blank">
+                                        <img src="img/yellowstone-logo.png" alt="Slide 1">
+                                    </a>
+                                </div>  
+                                <div class="item">
+                                    <a href="http://www.nps.gov/grca/index.htm" target="_blank">
+                                        <img src="img/grand_canyon_logo.jpg" alt="Slide 1">
+                                    </a> 
+                                </div>  
+                            </div>
+                            
+                            <!-- Controls -->                            
+                            <a href="#carousel" class="left carousel-control" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a href="#carousel" class="right carousel-control" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>                                                
+                    </div>
+                </div>
+            </div> <!-- App body -->
+            
+            <!-- Social Network -->
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <label>Follow us &nbsp;</label>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="img/facebook_logo.png" alt="Click to see our profile on facebook" class="img-rounded" />
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="img/instagram-logo.png" alt="Click to see our profile on instagram" class="img-rounded" />
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="img/twitter_logo.png" alt="Click to see our profile on twitter" class="img-rounded" />
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- Social Network -->
+            
+        </div>
     </body>
 </html>
