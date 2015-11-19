@@ -22,13 +22,7 @@ and open the template in the editor.
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#carousel').carousel({
-                    //options here
-                });
-            });   
-            
+        <script>     
             function enableLocation(obj) {
                 var edtMaxDistance = document.getElementById("maxDistance");
                 if (obj.checked) {            
@@ -67,9 +61,9 @@ and open the template in the editor.
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
                         <li><a href="news.html">News</a></li>
-                        <li><a href="promotions.html">Promotions</a></li>
+                        <li class="active"><a href="promotions.html">Promotions</a></li>
                         <li><a href="map_weather.html">Map &amp; Forecast</a></li>                        
                     </ul>
                     
@@ -188,84 +182,20 @@ and open the template in the editor.
                         
             <!-- App body -->
             <div class="col-md-7">     
-                <div class="panel panel-default">
-                    <div class="panel-heading">Most Wanted Attractions</div>
-                    <div class="panel-body">                        
-                        <div id="carousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0"></li>
-                                <li data-target="#carousel" data-slide-to="1"></li>
-                                <li data-target="#carousel" data-slide-to="2"></li>
-                                <li data-target="#carousel" data-slide-to="3"></li>
-                                <li data-target="#carousel" data-slide-to="4"></li>
-                                <li data-target="#carousel" data-slide-to="5"></li>
-                                <li data-target="#carousel" data-slide-to="6"></li>
-                            </ol>
-                            
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href="https://disneyworld.disney.go.com" target="_blank">
-                                        <img src="img/disney-world-logo.png" alt="Slide 1">
-                                    </a>
-                                </div>              
-                                <div class="item">
-                                    <a href="https://www.sixflags.com" target="_blank">
-                                        <img src="img/Six_Flags_logo.svg.png" alt="Slide 1">
-                                    </a>
-                                </div>  
-                                <div class="item">
-                                    <a href="https://www.universalorlando.com/Home.aspx" target="_blank">
-                                        <img src="img/Universal_Orlando_Resort_Logo.jpg" alt="Slide 1">
-                                    </a>
-                                </div>  
-                                <div class="item">
-                                    <a href="https://www.worldsoffun.com" target="_blank">
-                                        <img src="img/WF13-000%2040th%20Anniversary%20Logo.png" alt="Slide 1">
-                                    </a>
-                                </div>  
-                                <div class="item">
-                                    <a href="http://www.yellowstonenationalparklodges.com/lodging/?gclid=CImEpMn4m8kCFRCCaQod5NIAQA" target="_blank">
-                                        <img src="img/yellowstone-logo.png" alt="Slide 1">
-                                    </a>
-                                </div>  
-                                <div class="item">
-                                    <a href="http://www.nps.gov/grca/index.htm" target="_blank">
-                                        <img src="img/grand_canyon_logo.jpg" alt="Slide 1">
-                                    </a> 
-                                </div>  
-                            </div>
-                            
-                            <!-- Controls -->                            
-                            <a href="#carousel" class="left carousel-control" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a href="#carousel" class="right carousel-control" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>                                                
-                    </div>
-                </div>
-            </div> <!-- App body -->
-            
-            <!-- Social Network -->
-            <div class="col-md-7">
-                <div class="panel panel-default">
+                
+                <div class="panel panel-default"> 
+                    <div class="panel-heading">This is the title of your section</div>
                     <div class="panel-body">
-                        <label>Follow us &nbsp;</label>
-                        <a href="https://www.facebook.com" target="_blank">
-                            <img src="img/facebook_logo.png" alt="Click to see our profile on facebook" class="img-rounded" />
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank">
-                            <img src="img/instagram-logo.png" alt="Click to see our profile on instagram" class="img-rounded" />
-                        </a>
-                        <a href="https://www.twitter.com" target="_blank">
-                            <img src="img/twitter_logo.png" alt="Click to see our profile on twitter" class="img-rounded" />
-                        </a>
+                        
+                        
+                        <!-- include your content here -->
+                        <p>Include your content here</p>
+                        
+                        
                     </div>
                 </div>
-            </div> <!-- Social Network -->
+                
+            </div> <!-- App body -->
             
         </div>
     </body>
