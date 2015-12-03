@@ -22,7 +22,11 @@ and open the template in the editor.
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         
-        <script>     
+        <script> 
+            $(document).ready(function() {
+                $('#city').attr("disabled", "true");
+            }); 
+            
             function enableLocation(obj) {
                 var edtMaxDistance = document.getElementById("maxDistance");
                 if (obj.checked) {            
@@ -42,7 +46,7 @@ and open the template in the editor.
                     edtMaxDistance.value = "";
                     edtMaxDistance.setAttribute("disabled", "true");
                     state.removeAttribute("disabled");
-                    city.removeAttribute("disabled");                    
+                    enableCity(document.getElementById('state'));                    
                 }
             }
             
@@ -53,6 +57,15 @@ and open the template in the editor.
                 document.getElementById("edtTextBody").value = "";
                 
                 alert("Message sent. Thank you!");
+            }
+                                    
+            function enableCity(obj) {
+                if (obj.value == "Select the state") {
+                    document.getElementById("city").setAttribute("disabled", "true");
+                }
+                else {
+                    document.getElementById("city").removeAttribute("disabled");
+                }
             }
         </script>        
     </head>
@@ -129,7 +142,7 @@ and open the template in the editor.
                             
                             <div class="form-group">
                                 <label for="state">State *</label>
-                                <select id="state" class="form-control">
+                                <select id="state" class="form-control" onchange="enableCity(this)">
                                     <option>Select the state</option>
                                     <option>Amusement</option>
                                     <option>State Park</option>
