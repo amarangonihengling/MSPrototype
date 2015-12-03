@@ -31,6 +31,8 @@ and open the template in the editor.
 
                     if (ret == true) {
                         edtMaxDistance.removeAttribute("disabled");
+                        state.setAttribute("disabled", "true");
+                        city.setAttribute("disabled", "true");
                     }             
                     else {
                         obj.checked = false;
@@ -39,6 +41,8 @@ and open the template in the editor.
                 else {
                     edtMaxDistance.value = "";
                     edtMaxDistance.setAttribute("disabled", "true");
+                    state.removeAttribute("disabled");
+                    city.removeAttribute("disabled");                    
                 }
             }
         </script>        
@@ -173,7 +177,7 @@ and open the template in the editor.
                             <div class="col-md-12"></div>
                             <div class="col-md-12"></div>
                             
-                            <input type="submit" class="btn btn-primary" value="Search" />                            
+                            <a href="search_results.html" class="btn btn-primary">Search</a>
                             
                         </form>                    
                     </div>
@@ -184,13 +188,22 @@ and open the template in the editor.
             <div class="col-md-7">     
                 
                 <div class="panel panel-default"> 
-                    <div class="panel-heading">This is the title of your section</div>
+                    <div class="panel-heading">About us and ParkGenie</div>
                     <div class="panel-body">
-                        
-                        
+                                            
                         <!-- include your content here -->
-                        <p>Include your content here</p>
+                        <h3>Background and Motivation</h3>
+                        Millions of people travel every year to across the National and Amusement parks across the United States,                               especially to places like Wyoming, California and Florida. Out of the millions, many are familiar with the main                         attractions offered by those more frequented destinations. Most people have heard of places like Yosemite and                           Yellowstone national parks, Disneyland, and the Walt Disney World Resort in Florida because these well-known                             places attract a huge percentage of domestic and foreign travelers alike. Tourists headed to destinations in                             other regions of the US might not be fully aware of the beautiful and fun-filled parks available to them in each                         one of the fifty states. 
+                            
                         
+                        <h3>Our Mission</h3>
+                        Our mission is to make information about national and amusement parks available over the internet. The website                           is indicated for everyone interested on activities associated with parks and family fun centers.
+                        
+                        <h3>Our Goals</h3>
+                        Easiness of use and well fit for users' needs are our main goals.
+                        
+                        <h3>Our Vision</h3>
+                        Becoming a popular search engine in this market segment and provide a good experience for users.
                         
                     </div>
                 </div>

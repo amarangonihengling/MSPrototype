@@ -31,6 +31,8 @@ and open the template in the editor.
 
                     if (ret == true) {
                         edtMaxDistance.removeAttribute("disabled");
+                        state.setAttribute("disabled", "true");
+                        city.setAttribute("disabled", "true");
                     }             
                     else {
                         obj.checked = false;
@@ -39,6 +41,8 @@ and open the template in the editor.
                 else {
                     edtMaxDistance.value = "";
                     edtMaxDistance.setAttribute("disabled", "true");
+                    state.removeAttribute("disabled");
+                    city.removeAttribute("disabled");                    
                 }
             }
         </script>        
