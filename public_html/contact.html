@@ -45,6 +45,15 @@ and open the template in the editor.
                     city.removeAttribute("disabled");                    
                 }
             }
+            
+            function submitMessage() {
+                document.getElementById("edtName").value = "";
+                document.getElementById("edtEmail").value = "";
+                document.getElementById("edtTopic").value = "";
+                document.getElementById("edtTextBody").value = "";
+                
+                alert("Message sent. Thank you!");
+            }
         </script>        
     </head>
     <body>   
@@ -72,8 +81,8 @@ and open the template in the editor.
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="contact.html">Contact us</a></li>
-                        <li class="active"><a href="about.html">About</a></li>
+                        <li class="active"><a href="contact.html">Contact us</a></li>
+                        <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -186,31 +195,45 @@ and open the template in the editor.
             </div> <!-- Search --> 
                         
             <!-- App body -->
-            <div class="col-md-7">     
-                
+            <div class="col-md-7">                    
                 <div class="panel panel-default"> 
-                    <div class="panel-heading">About us and ParkGenie</div>
+                    <div class="panel-heading">Send us your feedback!</div>
                     <div class="panel-body">
-                                            
-                        <!-- include your content here -->
-                        <h3>Background and Motivation</h3>
-                        Millions of people travel every year to across the National and Amusement parks across the United States,                                 especially to places like Wyoming, California and Florida. Out of the millions, many are familiar with the main                           attractions offered by those more frequented destinations. Most people have heard of places like Yosemite and                             Yellowstone national parks, Disneyland, and the Walt Disney World Resort in Florida because these well-known                             places attract a huge percentage of domestic and foreign travelers alike. Tourists headed to destinations in                             other regions of the US might not be fully aware of the beautiful and fun-filled parks available to them in each                         one of the fifty states. 
+                    
+                        <form>
+                            <div class="form-group">
+                                <label for="edtName">Your Name *</label>
+                                <input type="text" id="edtName" class="form-control" placeholder="Enter your name" />
+                            </div>   
+                            <div class="form-group">
+                                <label for="edtEmail">Email *</label>
+                                <input type="email" id="edtEmail" class="form-control" placeholder="Enter the topic" />
+                            </div>
+                            <div class="form-group">
+                                <label for="edtTopic">Topic *</label>
+                                <input type="text" id="edtTopic" class="form-control" placeholder="Enter the topic" />
+                            </div>
+                            <div class="form-group">
+                                <label for="edtTextBody">Your message *</label>
+                                <textarea id="edtTextBody" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                            </div>  
                             
-                        
-                        <h3>Our Mission</h3>
-                        Our mission is to make information about national and amusement parks available over the internet. The website                           is indicated for everyone interested on activities associated with parks and family fun centers.
-                        
-                        <h3>Our Goals</h3>
-                        Easiness of use and well fit for users' needs are our main goals.
-                        
-                        <h3>Our Vision</h3>
-                        Becoming a popular search engine in this market segment and provide a good experience for users.
+                            <a class="btn btn-primary" onclick="submitMessage()">Submit Message</a>
+                        </form>
                         
                     </div>
-                </div>
-                
-            </div> <!-- App body -->            
-            
+                </div>                                
+            </div>
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Call us</div>
+                    <div class="panel-body">                        
+                        <img src="img/us_flag.png" class="img-rounded" alt="U.S. phone number" /> +1 (402) 3987-9800
+                        <br/><br/>                        
+                        <img src="img/canada_flag.png" class="img-rounded" alt="Canada phone number" /> +1 (402) 3987-9800 
+                    </div>
+                </div>                
+            </div>  <!-- App body -->                        
         </div>
     </body>
 </html>
