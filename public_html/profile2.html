@@ -23,6 +23,10 @@ and open the template in the editor.
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         
         <script>     
+            $(document).ready(function() {
+                $('#city').attr("disabled", "true");
+            }); 
+            
             function enableLocation(obj) {
                 var edtMaxDistance = document.getElementById("maxDistance");
                 if (obj.checked) {            
@@ -31,6 +35,8 @@ and open the template in the editor.
 
                     if (ret == true) {
                         edtMaxDistance.removeAttribute("disabled");
+                        state.setAttribute("disabled", "true");
+                        city.setAttribute("disabled", "true");
                     }             
                     else {
                         obj.checked = false;
@@ -39,6 +45,17 @@ and open the template in the editor.
                 else {
                     edtMaxDistance.value = "";
                     edtMaxDistance.setAttribute("disabled", "true");
+                    state.removeAttribute("disabled");
+                    enableCity(document.getElementById('state'));
+                }
+            }
+                        
+            function enableCity(obj) {
+                if (obj.value == "Select the state") {
+                    document.getElementById("city").setAttribute("disabled", "true");
+                }
+                else {
+                    document.getElementById("city").removeAttribute("disabled");
                 }
             }
         </script>        
@@ -68,6 +85,7 @@ and open the template in the editor.
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="contact.html">Contact us</a></li>
                         <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
@@ -94,7 +112,6 @@ and open the template in the editor.
                                     <option>Select the park type</option>
                                     <option>Amusement</option>
                                     <option>State Park</option>
-									<option>National Park</option>
                                 </select>
                             </div>
                             
@@ -116,9 +133,9 @@ and open the template in the editor.
                             
                             <div class="form-group">
                                 <label for="state">State *</label>
-                                <select id="state" class="form-control">
+                                <select id="state" class="form-control" onchange="enableCity(this)">
                                     <option>Select the state</option>
-                                   <option value="AL">Alabama</option>
+                                    <option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
 									<option value="AR">Arkansas</option>
@@ -176,8 +193,8 @@ and open the template in the editor.
                                 <label for="city">City *</label>
                                 <select id="city" class="form-control">
                                     <option>Select the city</option>
-                                    <option>Amusement</option>
-                                    <option>State Park</option>
+                                    <option>Lincoln</option>
+                                    <option>Omaha</option>
                                 </select>
                             </div>
                                                               
@@ -223,7 +240,7 @@ and open the template in the editor.
                             <div class="col-md-12"></div>
                             <div class="col-md-12"></div>
                             
-                            <input type="submit" class="btn btn-primary" value="Search" />                            
+                            <a href="search_results.html" class="btn btn-primary">Search</a>                          
                             
                         </form>                    
                     </div>
@@ -234,108 +251,21 @@ and open the template in the editor.
             <div class="col-md-7">     
                 
                 <div class="panel panel-default"> 
-                    <div class="panel-heading">This is the title of your section</div>
+                    <div class="panel-heading">Park Profile</div>
                     <div class="panel-body">
                         
                         
                         <!-- include your content here -->
-                        <h1>Search Result</h1>
-							<p><label>sort by<a style="margin-left: 5em" href="">A-Z</a><a style="margin-left: 5em" href="">price low-high</a><a style="margin-left: 5em" href="">distance from me</a></label></p>
-                        <table class="table">                       
-                            <tr>
-                                <th>Park</th>
-                                <th>Rate</th>
-                                <th>Price Range</th>
-								<th>Distance</th>
-                            </tr>
-            
-                            <tr>
-                                <td><a href="profile.html">Eugene T. Mahoney State Park</a></td>
-                                <td> 
-                                    <br/>
-                                   4.1 out of 5.0
-                                    <br/>
-                                </td>
-                                <td>
-                                    <br/>
-                                    $5-$30
-                                </td>
-								<td>
-									<br/>
-									25 miles
-								</td>
-                            </tr>
-            
-                            <tr>
-                                <td><a href="profile2.html">Platte River State Park </a></td>
-								
-                                <td> 
-                                    <br/>
-                                   4.0 out of 5.0
-                                    <br/>
-                                </td>
-                                <td>
-                                    <br/>
-                                    $5
-                                </td>
-								<td>
-									<br/>
-									28.7 miles
-								</td>
-                            </tr>    
-                                   <tr>
-                                <td><a href="profile3.html">Ponca State Park</a></td>
-                                <td> 
-                                    <br/>
-                                   4.5 out of 5.0
-                                    <br/>
-                                </td>
-                                <td>
-                                    <br/>
-                                    Free
-                                </td>
-								<td>
-									<br/>
-									121 miles
-								</td>
-                            </tr>            
-                              <tr>
-                                <td><a href="profile4.html">Windmill State Park</a></td>
-                                <td> 
-                                    <br/>
-                                   4.7 out of 5.0
-                                    <br/>
-                                </td>
-                                <td>
-                                    <br/>
-                                    Free
-                                </td>
-								<td>
-									<br/>
-									168 miles
-								</td>
-                            </tr>    
-                                   <tr>
-                                <td><a href="profile5.html">Ash Hallow</a></td>
-                                <td> 
-                                    <br/>
-                                   4.0 out of 5.0
-                                    <br/>
-                                </td>
-                                <td>
-                                    <br/>
-                                    $5
-                                </td>
-								<td>
-									<br/>
-									336 miles
-								</td>
-                            </tr>            
-                        </table>
+                            <h2>Platte River State Park</h2>
+							<p>14421 346th Stret, Louisville, NE 68037</p>
+							<p>Phone: (402) 234-2217</p>
+							<P>Park Type: State Park</p>
+							<p>Platte River State Park is a state park of Nebraska, USA, situated on the southern bluffs above the Platte River. It is located 3 miles (4.8 km) west of Louisville, Nebraska, and midway between Omaha and Lincoln. The park has a relatively steep, rolling topography compared to the surrounding region. Combined from several different areas, the park consists of 418 acres (169 ha) and most of it is forested. Two observation towers provide views of the Platte River valley, the taller of which rises 85 feet (26 m) above its base.[2] The park is located near several other tourist attractions including Eugene T. Mahoney State Park, the Strategic Air and Space Museum, the Conservation Park and Wildlife Safari, and several golf courses.</p>
+							<a href="http://outdoornebraska.gov/parks/park_pages/PlatteRiver_SP/">Go To the Park Website!</a>
                     </div>
                 </div>
                 
-            </div> <!-- App body -->            
+            </div> <!-- App body -->
             
         </div>
     </body>
